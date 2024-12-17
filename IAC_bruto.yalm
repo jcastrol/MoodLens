@@ -1,403 +1,313 @@
 ---
 Metadata:
   AWSToolsMetrics:
-    IaC_Generator: "arn:aws:cloudformation:eu-central-1:715841333753:generatedTemplate/02ad1562-bee0-410f-b4cb-205a6db0ccfd"
+    IaC_Generator: arn:aws:cloudformation:eu-central-1:715841333753:generatedTemplate/02ad1562-bee0-410f-b4cb-205a6db0ccfd
 Parameters:
-  LambdaFunction00partecognito0039tRACodeImageUriyvP6C:
-    NoEcho: "true"
-    Type: "String"
-    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
-      \ in the Amazon ECR registry."
-  LambdaFunction00parteMySQL00V3sDmCodeSourceKMSKeyArnXFhB4:
-    NoEcho: "true"
-    Type: "String"
-    Description: "Value of write only property Code/SourceKMSKeyArn of resource LambdaFunction00parteMySQL00V3sDm."
   LambdaFunction00parteMySQL00V3sDmCodeS3KeyHWGTd:
     NoEcho: "true"
-    Type: "String"
-    Description: "The Amazon S3 key of the deployment package."
-  LambdaFunction00parteRekognition00renhhCodeImageUriEZ3In:
-    NoEcho: "true"
-    Type: "String"
-    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
-      \ in the Amazon ECR registry."
+    Type: String
+    Description: lambda_mysql.zip
   LambdaFunction00partecognito0039tRACodeS3BucketPMMh0:
     NoEcho: "true"
-    Type: "String"
-    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
-      \ bucket can be in a different AWS-account."
-  LambdaFunction00partecognito0039tRACodeZipFileTUohj:
-    NoEcho: "true"
-    Type: "String"
-    Description: "(Node.js and Python) The source code of your Lambda function. If\
-      \ you include your function source inline with this parameter, CFN places it\
-      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
-      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
-      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
-      \  For JSON, you must escape quotes and special characters such as newline (``\\\
-      n``) with a backslash.\n If you specify a function that interacts with an AWS\
-      \ CloudFormation custom resource, you don't have to write your own functions\
-      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
-      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
-      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
-      \ for details."
-  LambdaFunction00parteMySQL00V3sDmCodeImageUriIjUwl:
-    NoEcho: "true"
-    Type: "String"
-    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
-      \ in the Amazon ECR registry."
-  LambdaFunction00parteMySQL00V3sDmCodeZipFilePi0BC:
-    NoEcho: "true"
-    Type: "String"
-    Description: "(Node.js and Python) The source code of your Lambda function. If\
-      \ you include your function source inline with this parameter, CFN places it\
-      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
-      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
-      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
-      \  For JSON, you must escape quotes and special characters such as newline (``\\\
-      n``) with a backslash.\n If you specify a function that interacts with an AWS\
-      \ CloudFormation custom resource, you don't have to write your own functions\
-      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
-      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
-      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
-      \ for details."
+    Type: String
+    Description: codigos-lambda
   LambdaFunction00parteMySQL00V3sDmCodeS3BucketCXrTD:
     NoEcho: "true"
-    Type: "String"
-    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
-      \ bucket can be in a different AWS-account."
-  LambdaFunction00parteRekognition00renhhCodeSourceKMSKeyArned2Wg:
-    NoEcho: "true"
-    Type: "String"
-    Description: "Value of write only property Code/SourceKMSKeyArn of resource LambdaFunction00parteRekognition00renhh."
+    Type: String
+    Description: codigos-lambda
   LambdaFunction00parteRekognition00renhhCodeS3BucketRsssG:
     NoEcho: "true"
-    Type: "String"
-    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
-      \ bucket can be in a different AWS-account."
-  LambdaFunction00partecognito0039tRACodeS3ObjectVersionN6lHi:
-    NoEcho: "true"
-    Type: "String"
-    Description: "For versioned objects, the version of the deployment package object\
-      \ to use."
+    Type: String
+    Description: codigos-lambda
   LambdaFunction00partecognito0039tRACodeS3KeyWi0Et:
     NoEcho: "true"
-    Type: "String"
-    Description: "The Amazon S3 key of the deployment package."
-  LambdaFunction00parteMySQL00V3sDmCodeS3ObjectVersion1sld1:
-    NoEcho: "true"
-    Type: "String"
-    Description: "For versioned objects, the version of the deployment package object\
-      \ to use."
-  LambdaFunction00partecognito0039tRACodeSourceKMSKeyArn8Uy7m:
-    NoEcho: "true"
-    Type: "String"
-    Description: "Value of write only property Code/SourceKMSKeyArn of resource LambdaFunction00partecognito0039tRA."
+    Type: String
+    Description: lambda_cognito.zip
   LambdaFunction00parteRekognition00renhhCodeS3KeylAkCr:
     NoEcho: "true"
-    Type: "String"
-    Description: "The Amazon S3 key of the deployment package."
-  LambdaFunction00parteRekognition00renhhCodeZipFileqmaLU:
-    NoEcho: "true"
-    Type: "String"
-    Description: "(Node.js and Python) The source code of your Lambda function. If\
-      \ you include your function source inline with this parameter, CFN places it\
-      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
-      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
-      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
-      \  For JSON, you must escape quotes and special characters such as newline (``\\\
-      n``) with a backslash.\n If you specify a function that interacts with an AWS\
-      \ CloudFormation custom resource, you don't have to write your own functions\
-      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
-      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
-      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
-      \ for details."
-  LambdaFunction00parteRekognition00renhhCodeS3ObjectVersionjD34B:
-    NoEcho: "true"
-    Type: "String"
-    Description: "For versioned objects, the version of the deployment package object\
-      \ to use."
+    Type: String
+    Description: lambda_rekognition.zip
 Resources:
   EC2Subnet00subnet0dd517dc95bbe8d5d005ppQc:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::Subnet"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::Subnet
+    DeletionPolicy: Retain
     Properties:
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       MapPublicIpOnLaunch: true
       EnableDns64: false
-      AvailabilityZoneId: "euc1-az1"
+      AvailabilityZoneId: euc1-az1
       PrivateDnsNameOptionsOnLaunch:
         EnableResourceNameDnsARecord: false
-        HostnameType: "ip-name"
+        HostnameType: ip-name
         EnableResourceNameDnsAAAARecord: false
-      CidrBlock: "172.31.0.0/20"
+      CidrBlock: 172.31.0.0/20
       Ipv6Native: false
       Tags: []
   EC2SecurityGroup00sg0f0150d39a830b7d600aq7XD:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::SecurityGroup"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::SecurityGroup
+    DeletionPolicy: Retain
     Properties:
-      GroupDescription: "Security group attached to database-1 to allow EC2 instances\
-        \ with specific security groups attached to connect to the database. Modification\
-        \ could lead to connection loss."
-      GroupName: "rds-ec2-1"
+      GroupDescription: Security group attached to database-1 to allow EC2 instances
+        with specific security groups attached to connect to the database.
+        Modification could lead to connection loss.
+      GroupName: rds-ec2-1
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       SecurityGroupIngress:
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "tcp"
-        FromPort: 3306
-        ToPort: 3306
-      - IpProtocol: "tcp"
-        Description: "Rule to allow connections from EC2 instances with sg-058d067696b20afd3\
-          \ attached"
-        FromPort: 3306
-        SourceSecurityGroupId: "sg-058d067696b20afd3"
-        ToPort: 3306
-        SourceSecurityGroupOwnerId: "715841333753"
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+        - IpProtocol: tcp
+          Description: Rule to allow connections from EC2 instances with
+            sg-058d067696b20afd3 attached
+          FromPort: 3306
+          SourceSecurityGroupId: sg-058d067696b20afd3
+          ToPort: 3306
+          SourceSecurityGroupOwnerId: "715841333753"
   EC2VolumeAttachment00vol0478fab855194349a00ZKmwF:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::VolumeAttachment"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::VolumeAttachment
+    DeletionPolicy: Retain
     Properties:
-      InstanceId: "i-031af3f36f998bf4f"
-      VolumeId: "vol-0478fab855194349a"
-      Device: "/dev/xvda"
+      InstanceId: i-031af3f36f998bf4f
+      VolumeId: vol-0478fab855194349a
+      Device: /dev/xvda
   LogsSubscriptionFilter00awslambdaparteRekognition00Bciaz:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Logs::SubscriptionFilter"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Logs::SubscriptionFilter
+    DeletionPolicy: Retain
     Properties:
       FilterPattern: ""
       LogGroupName:
-        Ref: "LogsLogGroup00awslambdaparteRekognition00BZoC9"
+        Ref: LogsLogGroup00awslambdaparteRekognition00BZoC9
       ApplyOnTransformedLogs: false
-      FilterName: "Parte Rekognition"
+      FilterName: Parte Rekognition
       DestinationArn:
         Fn::GetAtt:
-        - "LambdaFunction00parteMySQL00V3sDm"
-        - "Arn"
-      Distribution: "ByLogStream"
+          - LambdaFunction00parteMySQL00V3sDm
+          - Arn
+      Distribution: ByLogStream
   RDSDBSubnetGroup00default00TLjq1:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::RDS::DBSubnetGroup"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::RDS::DBSubnetGroup
+    DeletionPolicy: Retain
     Properties:
-      DBSubnetGroupDescription: "default"
+      DBSubnetGroupDescription: default
       SubnetIds:
-      - Ref: "EC2Subnet00subnet0fee00923b3aa190e00d8QqM"
-      - Ref: "EC2Subnet00subnet0dd517dc95bbe8d5d005ppQc"
-      - Ref: "EC2Subnet00subnet08a1f90e11b0b90f00067kuk"
-      DBSubnetGroupName: "default"
+        - Ref: EC2Subnet00subnet0fee00923b3aa190e00d8QqM
+        - Ref: EC2Subnet00subnet0dd517dc95bbe8d5d005ppQc
+        - Ref: EC2Subnet00subnet08a1f90e11b0b90f00067kuk
+      DBSubnetGroupName: default
   IAMRole00RolLambdaRekognition00blH5F:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::IAM::Role"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::IAM::Role
+    DeletionPolicy: Retain
     Properties:
-      Path: "/"
+      Path: /
       ManagedPolicyArns:
-      - "arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess"
-      - "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess"
-      - "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"
-      - "arn:aws:iam::aws:policy/CloudWatchApplicationInsightsFullAccess"
-      - "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess"
-      - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonRekognitionFullAccess"
+        - arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess
+        - arn:aws:iam::aws:policy/CloudWatchEventsFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs
+        - arn:aws:iam::aws:policy/CloudWatchApplicationInsightsFullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+        - arn:aws:iam::aws:policy/AmazonRekognitionFullAccess
       MaxSessionDuration: 3600
-      RoleName: "Rol_Lambda_Rekognition"
-      Description: "Allows Lambda functions to call AWS services on your behalf."
+      RoleName: Rol_Lambda_Rekognition
+      Description: Allows Lambda functions to call AWS services on your behalf.
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: 2012-10-17
         Statement:
-        - Action: "sts:AssumeRole"
-          Effect: "Allow"
-          Principal:
-            Service: "lambda.amazonaws.com"
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
   S3Bucket00myimageprocesadobucketfinal00rW2U1:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::S3::Bucket"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     Properties:
       NotificationConfiguration:
         QueueConfigurations: []
         TopicConfigurations: []
         LambdaConfigurations:
-        - Function:
-            Fn::GetAtt:
-            - "LambdaFunction00parteRekognition00renhh"
-            - "Arn"
-          Event: "s3:ObjectCreated:*"
+          - Function:
+              Fn::GetAtt:
+                - LambdaFunction00parteRekognition00renhh
+                - Arn
+            Event: s3:ObjectCreated:*
       PublicAccessBlockConfiguration:
         RestrictPublicBuckets: false
         IgnorePublicAcls: false
         BlockPublicPolicy: false
         BlockPublicAcls: false
-      BucketName: "myimageprocesadobucketfinal"
+      BucketName: myimageprocesadobucketfinal
       OwnershipControls:
         Rules:
-        - ObjectOwnership: "BucketOwnerPreferred"
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
-        - BucketKeyEnabled: true
-          ServerSideEncryptionByDefault:
-            SSEAlgorithm: "AES256"
+          - BucketKeyEnabled: true
+            ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
   KMSKey00f6320a28b32e4b58bbe410eeabaf493500tqkOp:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::KMS::Key"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::KMS::Key
+    DeletionPolicy: Retain
     Properties:
-      Origin: "AWS_KMS"
+      Origin: AWS_KMS
       MultiRegion: false
-      Description: "Default key that protects my RDS database volumes when no other\
-        \ key is defined"
+      Description: Default key that protects my RDS database volumes when no other key
+        is defined
       KeyPolicy:
-        Version: "2012-10-17"
+        Version: 2012-10-17
         Statement:
-        - Condition:
-            StringEquals:
-              kms:CallerAccount: "715841333753"
-              kms:ViaService: "rds.eu-central-1.amazonaws.com"
-          Resource: "*"
-          Action:
-          - "kms:Encrypt"
-          - "kms:Decrypt"
-          - "kms:ReEncrypt*"
-          - "kms:GenerateDataKey*"
-          - "kms:CreateGrant"
-          - "kms:ListGrants"
-          - "kms:DescribeKey"
-          Effect: "Allow"
-          Principal:
-            AWS: "*"
-          Sid: "Allow access through RDS for all principals in the account that are\
-            \ authorized to use RDS"
-        - Resource: "*"
-          Action:
-          - "kms:Describe*"
-          - "kms:Get*"
-          - "kms:List*"
-          - "kms:RevokeGrant"
-          Effect: "Allow"
-          Principal:
-            AWS: "arn:aws:iam::715841333753:root"
-          Sid: "Allow direct access to key metadata to the account"
-        Id: "auto-rds-2"
-      KeySpec: "SYMMETRIC_DEFAULT"
+          - Condition:
+              StringEquals:
+                kms:CallerAccount: "715841333753"
+                kms:ViaService: rds.eu-central-1.amazonaws.com
+            Resource: "*"
+            Action:
+              - kms:Encrypt
+              - kms:Decrypt
+              - kms:ReEncrypt*
+              - kms:GenerateDataKey*
+              - kms:CreateGrant
+              - kms:ListGrants
+              - kms:DescribeKey
+            Effect: Allow
+            Principal:
+              AWS: "*"
+            Sid: Allow access through RDS for all principals in the account that are
+              authorized to use RDS
+          - Resource: "*"
+            Action:
+              - kms:Describe*
+              - kms:Get*
+              - kms:List*
+              - kms:RevokeGrant
+            Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::715841333753:root
+            Sid: Allow direct access to key metadata to the account
+        Id: auto-rds-2
+      KeySpec: SYMMETRIC_DEFAULT
       Enabled: true
       EnableKeyRotation: true
-      KeyUsage: "ENCRYPT_DECRYPT"
+      KeyUsage: ENCRYPT_DECRYPT
       Tags: []
   LambdaPermission00functionparteMySQL008XDZe:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Permission"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Permission
+    DeletionPolicy: Retain
     Properties:
       FunctionName:
         Fn::GetAtt:
-        - "LambdaFunction00parteMySQL00V3sDm"
-        - "Arn"
-      Action: "lambda:InvokeFunction"
+          - LambdaFunction00parteMySQL00V3sDm
+          - Arn
+      Action: lambda:InvokeFunction
       SourceArn:
         Fn::GetAtt:
-        - "LogsLogGroup00awslambdaparteRekognition00BZoC9"
-        - "Arn"
-      Principal: "logs.amazonaws.com"
+          - LogsLogGroup00awslambdaparteRekognition00BZoC9
+          - Arn
+      Principal: logs.amazonaws.com
       SourceAccount: "715841333753"
   LambdaFunction00parteMySQL00V3sDm:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Function"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Function
+    DeletionPolicy: Retain
     Properties:
       MemorySize: 128
       Description: ""
       TracingConfig:
-        Mode: "PassThrough"
+        Mode: PassThrough
       VpcConfig:
         SecurityGroupIds:
-        - Fn::GetAtt:
-          - "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
-          - "DefaultSecurityGroup"
-        - "sg-0f0150d39a830b7d6"
+          - Fn::GetAtt:
+              - EC2VPC00vpc02c4cf805ba7c105f001ZIqs
+              - DefaultSecurityGroup
+          - sg-0f0150d39a830b7d6
         SubnetIds:
-        - Ref: "EC2Subnet00subnet0fee00923b3aa190e00d8QqM"
+          - Ref: EC2Subnet00subnet0fee00923b3aa190e00d8QqM
         Ipv6AllowedForDualStack: false
       Timeout: 60
       RuntimeManagementConfig:
-        UpdateRuntimeOn: "Auto"
-      Handler: "lambda_function.lambda_handler"
+        UpdateRuntimeOn: Auto
+      Handler: lambda_function.lambda_handler
       Code:
         S3Bucket:
-          Ref: codigos-lambda
+          Ref: LambdaFunction00parteMySQL00V3sDmCodeS3BucketCXrTD
         S3Key:
-          Ref: lambda_mysql.zip
+          Ref: LambdaFunction00parteMySQL00V3sDmCodeS3KeyHWGTd
       Role:
         Fn::GetAtt:
-        - "IAMRole00RolLabmdaMySQL00fSL5c"
-        - "Arn"
+          - IAMRole00RolLabmdaMySQL00fSL5c
+          - Arn
       FileSystemConfigs: []
-      FunctionName: "parte_MySQL"
-      Runtime: "python3.11"
-      PackageType: "Zip"
+      FunctionName: parte_MySQL
+      Runtime: python3.11
+      PackageType: Zip
       LoggingConfig:
-        LogFormat: "Text"
-        LogGroup: "/aws/lambda/parte_MySQL"
-      RecursiveLoop: "Terminate"
+        LogFormat: Text
+        LogGroup: /aws/lambda/parte_MySQL
+      RecursiveLoop: Terminate
       Environment:
         Variables:
-          MYSQL_DATABASE: "proyecto"
-          MYSQL_PASSWORD: "adminadmin"
-          MYSQL_HOST: "database-1.c9428sgo24fh.eu-central-1.rds.amazonaws.com"
-          MYSQL_USER: "admin"
+          MYSQL_DATABASE: proyecto
+          MYSQL_PASSWORD: adminadmin
+          MYSQL_HOST: database-1.c9428sgo24fh.eu-central-1.rds.amazonaws.com
+          MYSQL_USER: admin
       EphemeralStorage:
         Size: 512
       Architectures:
-      - "x86_64"
+        - x86_64
   LambdaPermission00functionpartecognito00yYbtM:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Permission"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Permission
+    DeletionPolicy: Retain
     Properties:
       FunctionName:
         Fn::GetAtt:
-        - "LambdaFunction00partecognito0039tRA"
-        - "Arn"
-      Action: "lambda:InvokeFunction"
-      SourceArn: "arn:aws:cognito-idp:eu-central-1:715841333753:userpool/eu-central-1_6q9JCEvAS"
-      Principal: "cognito-idp.amazonaws.com"
+          - LambdaFunction00partecognito0039tRA
+          - Arn
+      Action: lambda:InvokeFunction
+      SourceArn: arn:aws:cognito-idp:eu-central-1:715841333753:userpool/eu-central-1_6q9JCEvAS
+      Principal: cognito-idp.amazonaws.com
   EC2SecurityGroup00sg058d067696b20afd300SqdcC:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::SecurityGroup"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::SecurityGroup
+    DeletionPolicy: Retain
     Properties:
-      GroupDescription: "Security group attached to instances to securely connect\
-        \ to database-1. Modification could lead to connection loss."
-      GroupName: "ec2-rds-1"
+      GroupDescription: Security group attached to instances to securely connect to
+        database-1. Modification could lead to connection loss.
+      GroupName: ec2-rds-1
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       SecurityGroupIngress:
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "-1"
-        FromPort: -1
-        ToPort: -1
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: "-1"
+          FromPort: -1
+          ToPort: -1
       SecurityGroupEgress:
-      - IpProtocol: "tcp"
-        DestinationSecurityGroupId:
-          Fn::GetAtt:
-          - "EC2SecurityGroup00sg0f0150d39a830b7d600aq7XD"
-          - "GroupId"
-        Description: "Rule to allow connections to database-1 from any instances this\
-          \ security group is attached to"
-        FromPort: 3306
-        ToPort: 3306
+        - IpProtocol: tcp
+          DestinationSecurityGroupId:
+            Fn::GetAtt:
+              - EC2SecurityGroup00sg0f0150d39a830b7d600aq7XD
+              - GroupId
+          Description: Rule to allow connections to database-1 from any instances this
+            security group is attached to
+          FromPort: 3306
+          ToPort: 3306
   RDSDBInstance00database100RFUZc:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::RDS::DBInstance"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::RDS::DBInstance
+    DeletionPolicy: Retain
     Properties:
       StorageEncrypted: true
       AssociatedRoles: []
@@ -405,423 +315,423 @@ Resources:
       Port: "3306"
       ProcessorFeatures: []
       StorageThroughput: 0
-      PreferredBackupWindow: "00:11-00:41"
+      PreferredBackupWindow: 00:11-00:41
       MonitoringInterval: 0
-      DBParameterGroupName: "default.mysql8.0"
+      DBParameterGroupName: default.mysql8.0
       Endpoint: {}
-      NetworkType: "IPV4"
+      NetworkType: IPV4
       DedicatedLogVolume: false
       CopyTagsToSnapshot: true
       MultiAZ: false
-      Engine: "mysql"
+      Engine: mysql
       Tags: []
-      EngineLifecycleSupport: "open-source-rds-extended-support-disabled"
-      LicenseModel: "general-public-license"
-      EngineVersion: "8.0.39"
-      StorageType: "gp2"
+      EngineLifecycleSupport: open-source-rds-extended-support-disabled
+      LicenseModel: general-public-license
+      EngineVersion: 8.0.39
+      StorageType: gp2
       KmsKeyId:
         Fn::GetAtt:
-        - "KMSKey00f6320a28b32e4b58bbe410eeabaf493500tqkOp"
-        - "Arn"
-      DBInstanceClass: "db.t4g.micro"
-      AvailabilityZone: "eu-central-1b"
-      OptionGroupName: "default:mysql-8-0"
-      PreferredMaintenanceWindow: "sun:21:36-sun:22:06"
+          - KMSKey00f6320a28b32e4b58bbe410eeabaf493500tqkOp
+          - Arn
+      DBInstanceClass: db.t4g.micro
+      AvailabilityZone: eu-central-1b
+      OptionGroupName: default:mysql-8-0
+      PreferredMaintenanceWindow: sun:21:36-sun:22:06
       EnablePerformanceInsights: false
       AutoMinorVersionUpgrade: true
       DBSubnetGroupName:
-        Ref: "RDSDBSubnetGroup00default00TLjq1"
+        Ref: RDSDBSubnetGroup00default00TLjq1
       DeletionProtection: false
-      DBInstanceIdentifier: "database-1"
+      DBInstanceIdentifier: database-1
       AllocatedStorage: "20"
-      CACertificateIdentifier: "rds-ca-rsa2048-g1"
+      CACertificateIdentifier: rds-ca-rsa2048-g1
       ManageMasterUserPassword: false
       MasterUserSecret: {}
       VPCSecurityGroups:
-      - Fn::GetAtt:
-        - "EC2SecurityGroup00sg0f0150d39a830b7d600aq7XD"
-        - "GroupId"
+        - Fn::GetAtt:
+            - EC2SecurityGroup00sg0f0150d39a830b7d600aq7XD
+            - GroupId
       DBSecurityGroups: []
-      MasterUsername: "admin"
+      MasterUsername: admin
       EnableIAMDatabaseAuthentication: false
       MaxAllocatedStorage: 1000
       BackupRetentionPeriod: 1
       PubliclyAccessible: true
       EnableCloudwatchLogsExports: []
   EC2NetworkInterface00eni0d4aa39633867d0cc00nUeRP:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::NetworkInterface"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::NetworkInterface
+    DeletionPolicy: Retain
     Properties:
       Description: ""
-      PrivateIpAddress: "172.31.43.142"
+      PrivateIpAddress: 172.31.43.142
       PrivateIpAddresses:
-      - PrivateIpAddress: "172.31.43.142"
-        Primary: true
+        - PrivateIpAddress: 172.31.43.142
+          Primary: true
       SecondaryPrivateIpAddressCount: 0
       Ipv6PrefixCount: 0
       Ipv4Prefixes: []
       Ipv4PrefixCount: 0
       GroupSet:
-      - "sg-0b206a221540dd3b4"
-      - "sg-058d067696b20afd3"
+        - sg-0b206a221540dd3b4
+        - sg-058d067696b20afd3
       Ipv6Prefixes: []
       SubnetId:
-        Ref: "EC2Subnet00subnet08a1f90e11b0b90f00067kuk"
+        Ref: EC2Subnet00subnet08a1f90e11b0b90f00067kuk
       SourceDestCheck: true
-      InterfaceType: "interface"
+      InterfaceType: interface
       Tags: []
   IAMRole00RolLambdaCognito00LNAUm:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::IAM::Role"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::IAM::Role
+    DeletionPolicy: Retain
     Properties:
-      Path: "/"
+      Path: /
       ManagedPolicyArns:
-      - "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess"
-      - "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
-      - "arn:aws:iam::aws:policy/AmazonCognitoPowerUser"
-      - "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonCognitoDeveloperAuthenticatedIdentities"
-      - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+        - arn:aws:iam::aws:policy/CloudWatchEventsFullAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
+        - arn:aws:iam::aws:policy/AmazonCognitoPowerUser
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/AmazonCognitoDeveloperAuthenticatedIdentities
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
       MaxSessionDuration: 3600
-      RoleName: "Rol_Lambda_Cognito"
-      Description: "Allows Lambda functions to call AWS services on your behalf."
+      RoleName: Rol_Lambda_Cognito
+      Description: Allows Lambda functions to call AWS services on your behalf.
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: 2012-10-17
         Statement:
-        - Action: "sts:AssumeRole"
-          Effect: "Allow"
-          Principal:
-            Service: "lambda.amazonaws.com"
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
   LogsLogGroup00awslambdaparteRekognition00BZoC9:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Logs::LogGroup"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
     Properties:
       FieldIndexPolicies: []
-      LogGroupClass: "STANDARD"
-      LogGroupName: "/aws/lambda/parte_Rekognition"
+      LogGroupClass: STANDARD
+      LogGroupName: /aws/lambda/parte_Rekognition
       DataProtectionPolicy: {}
   IAMRole00RolLabmdaMySQL00fSL5c:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::IAM::Role"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::IAM::Role
+    DeletionPolicy: Retain
     Properties:
-      Path: "/"
+      Path: /
       ManagedPolicyArns:
-      - "arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"
-      - "arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess"
-      - "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess"
-      - "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
-      - "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess"
-      - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
-      - "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+        - arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs
+        - arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess
+        - arn:aws:iam::aws:policy/CloudWatchEventsFullAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+        - arn:aws:iam::aws:policy/AmazonRDSFullAccess
       MaxSessionDuration: 3600
-      RoleName: "Rol_Labmda_MySQL"
-      Description: "Allows Lambda functions to call AWS services on your behalf."
+      RoleName: Rol_Labmda_MySQL
+      Description: Allows Lambda functions to call AWS services on your behalf.
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: 2012-10-17
         Statement:
-        - Action: "sts:AssumeRole"
-          Effect: "Allow"
-          Principal:
-            Service: "lambda.amazonaws.com"
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
   EC2Subnet00subnet0fee00923b3aa190e00d8QqM:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::Subnet"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::Subnet
+    DeletionPolicy: Retain
     Properties:
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       MapPublicIpOnLaunch: true
       EnableDns64: false
-      AvailabilityZoneId: "euc1-az2"
+      AvailabilityZoneId: euc1-az2
       PrivateDnsNameOptionsOnLaunch:
         EnableResourceNameDnsARecord: false
-        HostnameType: "ip-name"
+        HostnameType: ip-name
         EnableResourceNameDnsAAAARecord: false
-      CidrBlock: "172.31.16.0/20"
+      CidrBlock: 172.31.16.0/20
       Ipv6Native: false
       Tags: []
   LambdaPermission00functionparteRekognition00FSoqP:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Permission"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Permission
+    DeletionPolicy: Retain
     Properties:
       FunctionName:
         Fn::GetAtt:
-        - "LambdaFunction00parteRekognition00renhh"
-        - "Arn"
-      Action: "lambda:InvokeFunction"
+          - LambdaFunction00parteRekognition00renhh
+          - Arn
+      Action: lambda:InvokeFunction
       SourceArn:
         Fn::GetAtt:
-        - "S3Bucket00myimageprocesadobucketfinal00rW2U1"
-        - "Arn"
-      Principal: "s3.amazonaws.com"
+          - S3Bucket00myimageprocesadobucketfinal00rW2U1
+          - Arn
+      Principal: s3.amazonaws.com
       SourceAccount: "715841333753"
   EC2Subnet00subnet08a1f90e11b0b90f00067kuk:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::Subnet"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::Subnet
+    DeletionPolicy: Retain
     Properties:
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       MapPublicIpOnLaunch: true
       EnableDns64: false
-      AvailabilityZoneId: "euc1-az3"
+      AvailabilityZoneId: euc1-az3
       PrivateDnsNameOptionsOnLaunch:
         EnableResourceNameDnsARecord: false
-        HostnameType: "ip-name"
+        HostnameType: ip-name
         EnableResourceNameDnsAAAARecord: false
-      CidrBlock: "172.31.32.0/20"
+      CidrBlock: 172.31.32.0/20
       Ipv6Native: false
       Tags: []
   LambdaFunction00parteRekognition00renhh:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Function"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Function
+    DeletionPolicy: Retain
     Properties:
       MemorySize: 128
       Description: ""
       TracingConfig:
-        Mode: "PassThrough"
+        Mode: PassThrough
       Timeout: 60
       RuntimeManagementConfig:
-        UpdateRuntimeOn: "Auto"
-      Handler: "lambda_function.lambda_handler"
+        UpdateRuntimeOn: Auto
+      Handler: lambda_function.lambda_handler
       Code:
         S3Bucket:
-          Ref: codigos-lambda
+          Ref: LambdaFunction00parteRekognition00renhhCodeS3BucketRsssG
         S3Key:
-          Ref: lambda_rekognition.zip
+          Ref: LambdaFunction00parteRekognition00renhhCodeS3KeylAkCr
       Role:
         Fn::GetAtt:
-        - "IAMRole00RolLambdaRekognition00blH5F"
-        - "Arn"
+          - IAMRole00RolLambdaRekognition00blH5F
+          - Arn
       FileSystemConfigs: []
-      FunctionName: "parte_Rekognition"
-      Runtime: "python3.11"
-      PackageType: "Zip"
+      FunctionName: parte_Rekognition
+      Runtime: python3.11
+      PackageType: Zip
       LoggingConfig:
-        LogFormat: "Text"
-        LogGroup: "/aws/lambda/parte_Rekognition"
-      RecursiveLoop: "Terminate"
+        LogFormat: Text
+        LogGroup: /aws/lambda/parte_Rekognition
+      RecursiveLoop: Terminate
       Environment:
         Variables:
-          S3_BUCKET: "myimageprocesadobucketfinal"
+          S3_BUCKET: myimageprocesadobucketfinal
       EphemeralStorage:
         Size: 512
       Architectures:
-      - "x86_64"
+        - x86_64
   EC2Instance00i031af3f36f998bf4f00Dq1y1:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::Instance"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::Instance
+    DeletionPolicy: Retain
     Properties:
-      Tenancy: "default"
+      Tenancy: default
       SecurityGroups:
-      - "launch-wizard-1"
-      - "ec2-rds-1"
-      PrivateIpAddress: "172.31.43.142"
-      InstanceInitiatedShutdownBehavior: "stop"
+        - launch-wizard-1
+        - ec2-rds-1
+      PrivateIpAddress: 172.31.43.142
+      InstanceInitiatedShutdownBehavior: stop
       CpuOptions:
         ThreadsPerCore: 1
         CoreCount: 1
       BlockDeviceMappings:
-      - Ebs:
-          SnapshotId: "snap-064b6d7adb637dd1b"
-          VolumeType: "gp2"
-          Iops: 100
-          VolumeSize: 8
-          Encrypted: false
-          DeleteOnTermination: true
-        DeviceName: "/dev/xvda"
-      AvailabilityZone: "eu-central-1b"
+        - Ebs:
+            SnapshotId: snap-064b6d7adb637dd1b
+            VolumeType: gp2
+            Iops: 100
+            VolumeSize: 8
+            Encrypted: false
+            DeleteOnTermination: true
+          DeviceName: /dev/xvda
+      AvailabilityZone: eu-central-1b
       PrivateDnsNameOptions:
         EnableResourceNameDnsARecord: true
-        HostnameType: "ip-name"
+        HostnameType: ip-name
         EnableResourceNameDnsAAAARecord: false
       SubnetId:
-        Ref: "EC2Subnet00subnet08a1f90e11b0b90f00067kuk"
+        Ref: EC2Subnet00subnet08a1f90e11b0b90f00067kuk
       SecurityGroupIds:
-      - "sg-0b206a221540dd3b4"
-      - "sg-058d067696b20afd3"
+        - sg-0b206a221540dd3b4
+        - sg-058d067696b20afd3
       EbsOptimized: false
       DisableApiTermination: false
-      KeyName: "pardeclaves"
+      KeyName: pardeclaves
       SourceDestCheck: true
       Volumes:
-      - VolumeId: "vol-0478fab855194349a"
-        Device: "/dev/xvda"
+        - VolumeId: vol-0478fab855194349a
+          Device: /dev/xvda
       PlacementGroupName: ""
-      VpcId: "vpc-02c4cf805ba7c105f"
+      VpcId: vpc-02c4cf805ba7c105f
       State:
         Code: "16"
-        Name: "running"
+        Name: running
       NetworkInterfaces:
-      - PrivateIpAddresses:
-        - PrivateIpAddress: "172.31.43.142"
-          Primary: true
-        SecondaryPrivateIpAddressCount: 0
-        DeviceIndex: "0"
-        GroupSet:
-        - Ref: "EC2SecurityGroup00sg0b206a221540dd3b400QMgWD"
-        - Ref: "EC2SecurityGroup00sg058d067696b20afd300SqdcC"
-        Ipv6Addresses: []
-        SubnetId:
-          Ref: "EC2Subnet00subnet08a1f90e11b0b90f00067kuk"
-        AssociatePublicIpAddress: true
-        NetworkInterfaceId:
-          Ref: "EC2NetworkInterface00eni0d4aa39633867d0cc00nUeRP"
-        DeleteOnTermination: true
-      ImageId: "ami-00d72ec36cdfc8a0a"
-      InstanceType: "t2.micro"
+        - PrivateIpAddresses:
+            - PrivateIpAddress: 172.31.43.142
+              Primary: true
+          SecondaryPrivateIpAddressCount: 0
+          DeviceIndex: "0"
+          GroupSet:
+            - Ref: EC2SecurityGroup00sg0b206a221540dd3b400QMgWD
+            - Ref: EC2SecurityGroup00sg058d067696b20afd300SqdcC
+          Ipv6Addresses: []
+          SubnetId:
+            Ref: EC2Subnet00subnet08a1f90e11b0b90f00067kuk
+          AssociatePublicIpAddress: true
+          NetworkInterfaceId:
+            Ref: EC2NetworkInterface00eni0d4aa39633867d0cc00nUeRP
+          DeleteOnTermination: true
+      ImageId: ami-00d72ec36cdfc8a0a
+      InstanceType: t2.micro
       Monitoring: false
       Tags:
-      - Value: "MySQLEC2"
-        Key: "Name"
+        - Value: MySQLEC2
+          Key: Name
       CreditSpecification:
-        CPUCredits: "standard"
+        CPUCredits: standard
   LambdaFunction00partecognito0039tRA:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Function"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Function
+    DeletionPolicy: Retain
     Properties:
       MemorySize: 128
       Description: ""
       TracingConfig:
-        Mode: "PassThrough"
+        Mode: PassThrough
       Timeout: 3
       RuntimeManagementConfig:
-        UpdateRuntimeOn: "Auto"
-      Handler: "lambda_function.lambda_handler"
+        UpdateRuntimeOn: Auto
+      Handler: lambda_function.lambda_handler
       Code:
         S3Bucket:
-          Ref: codigos-lambda
+          Ref: LambdaFunction00partecognito0039tRACodeS3BucketPMMh0
         S3Key:
-          Ref: lambda_cognito.zip
+          Ref: LambdaFunction00partecognito0039tRACodeS3KeyWi0Et
       Role:
         Fn::GetAtt:
-        - "IAMRole00RolLambdaCognito00LNAUm"
-        - "Arn"
+          - IAMRole00RolLambdaCognito00LNAUm
+          - Arn
       FileSystemConfigs: []
-      FunctionName: "parte_cognito"
-      Runtime: "python3.13"
-      PackageType: "Zip"
+      FunctionName: parte_cognito
+      Runtime: python3.13
+      PackageType: Zip
       LoggingConfig:
-        LogFormat: "Text"
-        LogGroup: "/aws/lambda/parte_cognito"
-      RecursiveLoop: "Terminate"
+        LogFormat: Text
+        LogGroup: /aws/lambda/parte_cognito
+      RecursiveLoop: Terminate
       Environment:
         Variables:
-          DB_NAME: "proyecto"
-          DB_HOST: "database-1.c9428sgo24fh.eu-central-1.rds.amazonaws.com"
-          DB_USER: "admin"
-          DB_PASSWORD: "adminadmin"
+          DB_NAME: proyecto
+          DB_HOST: database-1.c9428sgo24fh.eu-central-1.rds.amazonaws.com
+          DB_USER: admin
+          DB_PASSWORD: adminadmin
       EphemeralStorage:
         Size: 512
       Architectures:
-      - "x86_64"
+        - x86_64
   SNSTopic00ImagenProcesada00E2dB1:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::SNS::Topic"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::SNS::Topic
+    DeletionPolicy: Retain
     Properties:
       DeliveryStatusLogging:
-      - FailureFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSFailureFeedback"
-        SuccessFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSSuccessFeedback"
-        Protocol: "lambda"
-        SuccessFeedbackSampleRate: "100"
-      - FailureFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSFailureFeedback"
-        SuccessFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSSuccessFeedback"
-        Protocol: "application"
-        SuccessFeedbackSampleRate: "100"
-      - FailureFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSFailureFeedback"
-        SuccessFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSSuccessFeedback"
-        Protocol: "firehose"
-        SuccessFeedbackSampleRate: "100"
-      - FailureFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSFailureFeedback"
-        SuccessFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSSuccessFeedback"
-        Protocol: "http/s"
-        SuccessFeedbackSampleRate: "100"
-      - FailureFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSFailureFeedback"
-        SuccessFeedbackRoleArn: "arn:aws:iam::715841333753:role/SNSSuccessFeedback"
-        Protocol: "sqs"
-        SuccessFeedbackSampleRate: "100"
-      TracingConfig: "PassThrough"
+        - FailureFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSFailureFeedback
+          SuccessFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSSuccessFeedback
+          Protocol: lambda
+          SuccessFeedbackSampleRate: "100"
+        - FailureFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSFailureFeedback
+          SuccessFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSSuccessFeedback
+          Protocol: application
+          SuccessFeedbackSampleRate: "100"
+        - FailureFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSFailureFeedback
+          SuccessFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSSuccessFeedback
+          Protocol: firehose
+          SuccessFeedbackSampleRate: "100"
+        - FailureFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSFailureFeedback
+          SuccessFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSSuccessFeedback
+          Protocol: http/s
+          SuccessFeedbackSampleRate: "100"
+        - FailureFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSFailureFeedback
+          SuccessFeedbackRoleArn: arn:aws:iam::715841333753:role/SNSSuccessFeedback
+          Protocol: sqs
+          SuccessFeedbackSampleRate: "100"
+      TracingConfig: PassThrough
       FifoTopic: false
       Subscription:
-      - Endpoint: "heroesdelolimpo44@gmail.com"
-        Protocol: "email"
-      - Endpoint: "jhocastrol.99@gmail.com"
-        Protocol: "email"
+        - Endpoint: heroesdelolimpo44@gmail.com
+          Protocol: email
+        - Endpoint: jhocastrol.99@gmail.com
+          Protocol: email
       Tags:
-      - Value: "Imagen_procesada"
-        Key: "Tema_nombre"
+        - Value: Imagen_procesada
+          Key: Tema_nombre
       ArchivePolicy: {}
-      TopicName: "Imagen_Procesada"
+      TopicName: Imagen_Procesada
   EC2VPC00vpc02c4cf805ba7c105f001ZIqs:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::VPC"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::VPC
+    DeletionPolicy: Retain
     Properties:
-      CidrBlock: "172.31.0.0/16"
+      CidrBlock: 172.31.0.0/16
       EnableDnsSupport: true
-      InstanceTenancy: "default"
+      InstanceTenancy: default
       EnableDnsHostnames: true
       Tags: []
   EC2Volume00vol0478fab855194349a00l9H5O:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::Volume"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::Volume
+    DeletionPolicy: Retain
     Properties:
       MultiAttachEnabled: false
-      SnapshotId: "snap-064b6d7adb637dd1b"
-      VolumeType: "gp2"
+      SnapshotId: snap-064b6d7adb637dd1b
+      VolumeType: gp2
       Encrypted: false
       Size: 8
       AutoEnableIO: true
-      AvailabilityZone: "eu-central-1b"
+      AvailabilityZone: eu-central-1b
       Iops: 100
       Tags: []
   EC2SecurityGroup00sg0b206a221540dd3b400QMgWD:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::EC2::SecurityGroup"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::EC2::SecurityGroup
+    DeletionPolicy: Retain
     Properties:
-      GroupDescription: "launch-wizard-1 created 2024-12-11T09:54:36.855Z"
-      GroupName: "launch-wizard-1"
+      GroupDescription: launch-wizard-1 created 2024-12-11T09:54:36.855Z
+      GroupName: launch-wizard-1
       VpcId:
-        Ref: "EC2VPC00vpc02c4cf805ba7c105f001ZIqs"
+        Ref: EC2VPC00vpc02c4cf805ba7c105f001ZIqs
       SecurityGroupIngress:
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "tcp"
-        FromPort: 80
-        ToPort: 80
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "tcp"
-        FromPort: 22
-        ToPort: 22
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "tcp"
-        FromPort: 443
-        ToPort: 443
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
       SecurityGroupEgress:
-      - CidrIp: "0.0.0.0/0"
-        IpProtocol: "-1"
-        FromPort: -1
-        ToPort: -1
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: "-1"
+          FromPort: -1
+          ToPort: -1
   LambdaPermission00functionpartecognito00bM3yY:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::Lambda::Permission"
-    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::Permission
+    DeletionPolicy: Retain
     Properties:
       FunctionName:
         Fn::GetAtt:
-        - "LambdaFunction00partecognito0039tRA"
-        - "Arn"
-      Action: "lambda:InvokeFunction"
-      SourceArn: "arn:aws:cognito-idp:eu-central-1:715841333753:userpool/eu-central-1_L4URGgV63"
-      Principal: "cognito-idp.amazonaws.com"
+          - LambdaFunction00partecognito0039tRA
+          - Arn
+      Action: lambda:InvokeFunction
+      SourceArn: arn:aws:cognito-idp:eu-central-1:715841333753:userpool/eu-central-1_L4URGgV63
+      Principal: cognito-idp.amazonaws.com
