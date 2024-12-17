@@ -4,22 +4,63 @@ import ImageUploader, { ImageData } from "./ImageUploader";
 
 type Props = {};
 
+const MAX_SIMULTANEOUS_UPLOADS = 3;
+
 const UploadSection = (props: Props) => {
-    const [images, setImages] = useState<ImageData[]>([]);
-    const [loadingImages, setLoadingImages] = useState<string[]>([]);
+  const [images, setImages] = useState<ImageData[]>([]);
+  const [loadingImages, setLoadingImages] = useState<string[]>([]);
+  const [uploadQueue, setUploadQueue] = useState<File[]>([]);
 
-    const handleUpload = (uploadedImages: ImageData[]) => {
-    const newImageIds = uploadedImages.map((image) => image._id);
-    setLoadingImages((prev) => [...prev, ...newImageIds]);
+  const uploadImage = async (file: File) => {
+    try {
+      // Añadir el nombre del archivo a la lista de imágenes en carga
+      setLoadingImages((prev) => [...prev, file.name]);
+      const formData = new FormData();
+      formData.append('file', file);
 
-    setImages((prevImages) => [...prevImages, ...uploadedImages]);
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData
+      });
 
-    // Simular un tiempo de carga para las imágenes
-    setTimeout(() => {
-      setLoadingImages((prev) => prev.filter((id) => !newImageIds.includes(id)));
-    }, 2000); // 2 segundos de simulación de carga
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Error uploading file");
+      }
+
+      console.log(data)
+      // Actualizar la lista de imágenes con la URL devuelta
+      // setImages((prevImages) => [
+      //   ...prevImages,
+      //   { 
+      //     _id:file.name, 
+      //     url: data.url ,
+      //     file: file,
+      //     description: '',
+      //   } as ImageData
+      // ]);
+    } catch (error) {
+      console.error("Upload error:", error);
+    } finally {
+      // Eliminar el nombre del archivo de la lista de imágenes en carga
+      setLoadingImages((prev) => prev.filter((name) => name !== file.name));
+    }
   };
-  
+
+  const handleUpload = async (images: ImageData[]) => {
+    const selectedFiles: File[]=images.map(img=>img.file)
+    const pendingUploads = [...uploadQueue, ...selectedFiles];
+    setUploadQueue(pendingUploads);
+
+    while (pendingUploads.length > 0 && loadingImages.length < MAX_SIMULTANEOUS_UPLOADS) {
+      const file = pendingUploads.shift();
+      if (file) {
+        await uploadImage(file);
+      }
+      setUploadQueue([...pendingUploads]);
+    }
+  };
   return (
     <div className="container mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6 text-center">Subida de Imágenes</h1>
