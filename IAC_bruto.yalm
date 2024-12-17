@@ -331,18 +331,10 @@ Resources:
         UpdateRuntimeOn: "Auto"
       Handler: "lambda_function.lambda_handler"
       Code:
-        SourceKMSKeyArn:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeSourceKMSKeyArnXFhB4"
-        S3ObjectVersion:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeS3ObjectVersion1sld1"
         S3Bucket:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeS3BucketCXrTD"
-        ZipFile:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeZipFilePi0BC"
-        ImageUri:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeImageUriIjUwl"
+          Ref: codigos-lambda
         S3Key:
-          Ref: "LambdaFunction00parteMySQL00V3sDmCodeS3KeyHWGTd"
+          Ref: lambda_mysql.zip
       Role:
         Fn::GetAtt:
         - "IAMRole00RolLabmdaMySQL00fSL5c"
@@ -600,18 +592,10 @@ Resources:
         UpdateRuntimeOn: "Auto"
       Handler: "lambda_function.lambda_handler"
       Code:
-        SourceKMSKeyArn:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeSourceKMSKeyArned2Wg"
-        S3ObjectVersion:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeS3ObjectVersionjD34B"
         S3Bucket:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeS3BucketRsssG"
-        ZipFile:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeZipFileqmaLU"
-        ImageUri:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeImageUriEZ3In"
+          Ref: codigos-lambda
         S3Key:
-          Ref: "LambdaFunction00parteRekognition00renhhCodeS3KeylAkCr"
+          Ref: lambda_rekognition.zip
       Role:
         Fn::GetAtt:
         - "IAMRole00RolLambdaRekognition00blH5F"
@@ -714,18 +698,10 @@ Resources:
         UpdateRuntimeOn: "Auto"
       Handler: "lambda_function.lambda_handler"
       Code:
-        SourceKMSKeyArn:
-          Ref: "LambdaFunction00partecognito0039tRACodeSourceKMSKeyArn8Uy7m"
-        S3ObjectVersion:
-          Ref: "LambdaFunction00partecognito0039tRACodeS3ObjectVersionN6lHi"
         S3Bucket:
-          Ref: "LambdaFunction00partecognito0039tRACodeS3BucketPMMh0"
-        ZipFile:
-          Ref: "LambdaFunction00partecognito0039tRACodeZipFileTUohj"
-        ImageUri:
-          Ref: "LambdaFunction00partecognito0039tRACodeImageUriyvP6C"
+          Ref: codigos-lambda
         S3Key:
-          Ref: "LambdaFunction00partecognito0039tRACodeS3KeyWi0Et"
+          Ref: lambda_cognito.zip
       Role:
         Fn::GetAtt:
         - "IAMRole00RolLambdaCognito00LNAUm"
