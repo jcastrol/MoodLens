@@ -1,0 +1,238 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Infraestructura con S3, VPC, EC2, RDS MySQL y funciones Lambda con permisos completos.
+
+Resources:
+  # VPC
+  VPCIAC2:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: VPCIAC2
+
+  # Internet Gateway
+  VPCIAC2InternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  # Conexión del Internet Gateway a la VPC
+  VPCIAC2AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPCIAC2
+      InternetGatewayId: !Ref VPCIAC2InternetGateway
+
+  # Subredes
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCIAC2
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select
+        - 0
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: PublicSubnet1
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCIAC2
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select
+        - 1
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: PublicSubnet2
+
+  PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCIAC2
+      CidrBlock: 10.0.3.0/24
+      MapPublicIpOnLaunch: false
+      AvailabilityZone: !Select
+        - 2
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet
+
+  # Route Table para subredes públicas
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPCIAC2
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref VPCIAC2InternetGateway
+
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+  # Security Groups
+  LambdaSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VPCIAC2
+      GroupDescription: Security Group for Lambda functions
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0
+
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VPCIAC2
+      GroupDescription: Allow SSH and MySQL access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0
+
+  RDSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VPCIAC2
+      GroupDescription: Allow MySQL traffic from EC2 and Lambda
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !Ref EC2SecurityGroup
+
+  # EC2 Instance
+  MySQLEC2IAC:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      SubnetId: !Ref PublicSubnet1
+      ImageId: ami-00d72ec36cdfc8a0a
+      SecurityGroupIds:
+        - !Ref EC2SecurityGroup
+      Tags:
+        - Key: Name
+          Value: MySQLEC2IAC
+
+  # RDS MySQL Instance
+  DatabaseIAC:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: database_iac
+      AllocatedStorage: 100
+      DBInstanceClass: db.t4g.micro
+      Engine: mysql
+      MasterUsername: admin
+      MasterUserPassword: adminpassword123
+      VPCSecurityGroups:
+        - !Ref RDSSecurityGroup
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+
+  # RDS Subnet Group
+  DatabaseSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Subnets for RDS
+      SubnetIds:
+        - !Ref PrivateSubnet
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+
+  # IAM Role for Lambda
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaAccessPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:*
+                  - rds:*
+                  - ec2:*
+                  - sns:*
+                  - logs:*
+                  - rekognition:*
+                Resource: '*'
+
+  # Lambda Functions
+  ParteRekognitionIAC:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: parte_rekognition_IAC
+      Handler: index.handler
+      Runtime: python3.11
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        S3Bucket: codigos-lambda
+        S3Key: lambda_rekognition.zip
+
+  ParteCognitoIAC:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: parte_cognito_IAC
+      Handler: index.handler
+      Runtime: python3.11
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        S3Bucket: codigos-lambda
+        S3Key: lambda_cognito.zip
+
+  ParteMySQLIAC:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: parte_MySQL_IAC
+      Handler: index.handler
+      Runtime: python3.11
+      Role: !GetAtt LambdaExecutionRole.Arn
+      VpcConfig:
+        SubnetIds:
+          - !Ref PublicSubnet1
+        SecurityGroupIds:
+          - !Ref LambdaSecurityGroup
+      Code:
+        S3Bucket: codigos-lambda
+        S3Key: lambda_mysql.zip
+
+  MyIACS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: myiacs3
+
+
+
