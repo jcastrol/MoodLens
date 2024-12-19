@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import { Journal } from 'src/journals/entity/journal.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 
 @Entity('usuarios')
 export class Usuarios {
@@ -10,6 +11,8 @@ export class Usuarios {
 
   @Column()
   name: string;
-
+ 
+  @OneToMany(() => Journal, (journal) => journal.user)
+  journals: Journal[];
 
 }

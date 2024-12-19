@@ -1,32 +1,40 @@
+interface User {
+  uuid: string;
+  email: string;
+  name: string;
+}
+
 export interface Image {
-    _id: string;
-    fecha: string;
-    url_imagen: string;
-    usuario: string;
-    descripcion: string;
-    emoticono: string;
-  }
+  date: string; // formato ISO 8601
+  description: string;
+  emoji: string;
+  id: string;
+  imageUrl: string;
+  user: User;
+  userUuid: string;
+}
+
 export interface ImageCardProps {
   image: Image ;
 }
 
 const ImageCard = ({image}: ImageCardProps) => {
   return (
-    <div className="border p-4 rounded-md shadow-md">
+    <div className="card">
       <img
-        src={image.url_imagen}
+        src={image.imageUrl}
         alt="Uploaded"
         className="w-full h-48 object-cover rounded-md"
       />
       <div className="mt-2">
-        <p className="text-sm text-gray-700 font-semibold">
-          Descripción: {image.descripcion}
+        <p className="text-sm font-semibold text-secondary">
+          Descripción: <span className="accent">{image.description}</span>
         </p>
-        <p className="text-sm text-gray-500">
-          Fecha: {new Date(image.fecha).toLocaleString()}
+        <p className="text-sm text-secondary-text">
+          Fecha: {new Date(image.date).toLocaleString()}
         </p>
-        <p className="text-sm text-gray-500">Usuario: {image.usuario}</p>
-        <p className="text-2xl mt-2">{image.emoticono}</p>
+        <p className="text-sm text-secondary-text">Usuario: {image.user.name}</p>
+        <p className="text-2xl mt-2">{image.emoji}</p>
       </div>
     </div>
   );

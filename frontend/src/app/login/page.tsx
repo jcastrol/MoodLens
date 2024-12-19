@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { login } from "@/services/authService";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -12,25 +11,24 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await login(email, password);
-      console.log(data);
-      if (typeof window !== "undefined") {
-        // Usar sessionStorage o localStorage según tu preferencia
-        //localStorage.setItem("token", data.token);
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-        // O si prefieres usar sessionStorage (se borra al cerrar el navegador)
-        sessionStorage.setItem("token", data.token);
+      if (!response.ok) {
+        const { error } = await response.json();
+        setError(error);
+        return;
       }
-
-      // Limpiar cualquier estado de error
-      setError("");
-
+      console.log(response)
       // Redirigir a la página principal
       router.push("/");
-     
-      // alert("Login successful!");
     } catch (err) {
-      setError("Invalid credentials");
+      setError("Something went wrong");
     }
   };
 

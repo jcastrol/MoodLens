@@ -7,6 +7,8 @@ import { UploadModule } from './upload/upload.module';
 import { AuthModule } from './auth/auth.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { Usuarios as User } from './auth/entity/user.entity'; // Importa la entidad de usuario
+import { JournalsModule } from './journals/journals.module';
+import { Journal } from './journals/entity/journal.entity';
 
 
 @Module({
@@ -19,12 +21,13 @@ import { Usuarios as User } from './auth/entity/user.entity'; // Importa la enti
       username: process.env.DB_USERNAME || 'admin',
       password: process.env.DB_PASSWORD || 'adminadmin',
       database: process.env.DB_NAME || 'proyecto',
-      entities: [User], // Añade aquí todas las entidades necesarias
+      entities: [User,Journal], // Añade aquí todas las entidades necesarias
       synchronize: false, 
     }),
     UploadModule,
     AuthModule,
     NotificationsModule,
+    JournalsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

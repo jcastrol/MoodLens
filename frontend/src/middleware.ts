@@ -2,18 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 export function middleware(req: NextRequest) {
-  // NOTA: Este método NO es 100% confiable porque el middleware se ejecuta en el servidor
-  const token = req.cookies.get("token")?.value || 
-                req.headers.get("x-token") || 
-                ''; // Añadir algún método para obtener el token del cliente
-
+  const token = req.cookies.get("token")?.value;
+  console.log({token})
   const { pathname } = req.nextUrl;
 
-  if (pathname === "/" && !token) {
+  // Redirigir a login si no hay token y se intenta acceder a una ruta protegida
+  if (!token && pathname === "/") {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  if ((pathname === "/login" || pathname === "/register") && token) {
+  // Redirigir a la página principal si ya hay un token y se accede a /login o /register
+  if (token && (pathname === "/login" || pathname === "/register")) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 

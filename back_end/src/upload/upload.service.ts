@@ -21,8 +21,8 @@ export class UploadService {
 
   async uploadFile(file: Express.Multer.File, user: any) {
     console.log(file)
-    
-    const key = `${user.userId}/${uuidv4()}-${file.originalname}`;
+    const randomid= Math.random()*10000
+    const key = `${user.userId}/${randomid}-${file.originalname}`;
 
     try {
       await this.s3Client.send(
@@ -34,6 +34,7 @@ export class UploadService {
           Metadata: {
             uploadedBy: user.username,
           },
+          ACL:"public-read"
         }),
       );
 
